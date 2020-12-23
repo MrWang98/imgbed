@@ -27,10 +27,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73cf272c-da4b-4c69-ae42-040aa6720892" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="73cf272c-da4b-4c69-ae42-040aa6720892" name="Default Changelist" comment="修改readme">
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,8 +104,16 @@
       <workItem from="1608636698168" duration="6014000" />
       <workItem from="1608642787359" duration="8828000" />
       <workItem from="1608651765394" duration="388000" />
-      <workItem from="1608719767595" duration="10131000" />
+      <workItem from="1608719767595" duration="10181000" />
     </task>
+    <task id="LOCAL-00001" summary="修改readme">
+      <created>1608730845484</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608730845484</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,6 +130,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="修改readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改readme" />
   </component>
   <component name="WindowStateProjectService">
     <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1608639164857">
