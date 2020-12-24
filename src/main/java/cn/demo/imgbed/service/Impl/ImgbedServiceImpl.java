@@ -58,12 +58,12 @@ public class ImgbedServiceImpl implements ImgbedService {
                         b[i]+=256;
                     }
                 }
-                String filePath = "/tmp/"+username;
+                String filePath = "/tmp";
                 File file = new File(filePath);
                 if(!file.exists()){
                     file.mkdir();
                 }
-                String imgFilePath = filePath+"\\"+fileName;//新生成的图片
+                String imgFilePath = filePath+"/"+fileName;//新生成的图片
                 System.out.println(imgFilePath);
                 OutputStream out = new FileOutputStream(imgFilePath);
                 out.write(b);
@@ -73,7 +73,7 @@ public class ImgbedServiceImpl implements ImgbedService {
             }
             catch (Exception e)
             {
-                return ApiResultUtil.error("出错");
+                return ApiResultUtil.error(e.getMessage());
             }
         }
 

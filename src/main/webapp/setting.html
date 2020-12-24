@@ -119,7 +119,7 @@
 
     function saveConfig() {
         var data = "type="+$("#type").val()
-            +"&Username="+$("#Username").val()+"&Password="+$("#Password").val();
+            +"&username="+$("#Username").val()+"&password="+$("#Password").val();
         $.post("/login",data,function (data) {
             alert(data.msg);
         })
