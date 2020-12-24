@@ -370,7 +370,7 @@
         key = encodeURI(key);
         console.log(key);
         if (key == ""){
-            alert("请输入通讯密钥！");
+            alert("请输入文件名！");
             return;
         }
 
@@ -381,7 +381,7 @@
         $("#outPut").val($("#outPut").val()+"开始测试Api接口...\n");
         $("#outPut").val($("#outPut").val()+"请求接口："+url+"\n");
 
-        $("#outPut").val($("#outPut").val()+"通讯密钥："+key+"\n\n");
+        $("#outPut").val($("#outPut").val()+"文件名："+key+"\n\n");
 
         $("#outPut").val($("#outPut").val()+"读入图片成功，转换成Base64编码(此处为前50位,后面的省略)：\n");
         $("#outPut").val($("#outPut").val()+baseData.substr(0,50)+"\n\n");
