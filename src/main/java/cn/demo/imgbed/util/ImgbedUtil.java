@@ -22,14 +22,6 @@ public class ImgbedUtil {
         return result.toString();
     }
 
-    /**
-     * 取两个文本之间的文本值
-     *
-     * @param text
-     * @param left
-     * @param right
-     * @return
-     */
     public static String getSubString(String text, String left, String right) {
         String result = "";
         int zLen;
