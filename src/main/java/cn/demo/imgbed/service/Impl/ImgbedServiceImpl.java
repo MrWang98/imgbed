@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ClassUtils;
 import sun.misc.BASE64Decoder;
 
+import javax.servlet.http.HttpSession;
 import java.awt.*;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -35,11 +36,11 @@ public class ImgbedServiceImpl implements ImgbedService {
 
     //上传
     @Override
-    public ApiRes doUpload(String imgBase64, String fileName, String username){
-        if (imgbedConfig == null){
-            getImgbedConfig();
+    public ApiRes doUpload(String imgBase64, String fileName, String username, HttpSession httpSession){
+        if (httpSession.getAttribute("user") == null) {
+            return ApiResultUtil.error("no login info");
         }
-        //
+
         UserAccount currentUser = userAccountMapper.selectByName(username);
         if (imageDetailMapper.selectByIdAndFilename(currentUser.getId(),fileName) != null) {
             return ApiResultUtil.error("duplicated filename");

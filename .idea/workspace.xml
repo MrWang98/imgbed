@@ -24,19 +24,15 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73cf272c-da4b-4c69-ae42-040aa6720892" name="Default Changelist" comment="修改注册逻辑">
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/entity/ImageDetail.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/mapper/ImageDetailMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/ImageDetailMapper.tld" afterDir="false" />
+    <list default="true" id="73cf272c-da4b-4c69-ae42-040aa6720892" name="Default Changelist" comment="新增ImageDetail实体类，对应数据库user_img表&#10;todo：用户从图床移除某个图片、获取该用户所有图片的信息和缩略图（base64）">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/entity/UserAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/entity/UserAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/service/ImgbedService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/service/ImgbedService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/service/Impl/ImgbedServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/service/Impl/ImgbedServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/util/ImgbedUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/util/ImgbedUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ImageDetailMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ImageDetailMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/api.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/cover.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/particles.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/setting.html" beforeDir="false" />
     </list>
@@ -183,7 +179,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608889784233</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="新增ImageDetail实体类，对应数据库user_img表&#10;todo：用户从图床移除某个图片、获取该用户所有图片的信息和缩略图（base64）">
+      <created>1608894494381</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1608894494381</updated>
+    </task>
+    <task id="LOCAL-00010" summary="新增ImageDetail实体类，对应数据库user_img表&#10;todo：用户从图床移除某个图片、获取该用户所有图片的信息和缩略图（base64）">
+      <created>1608894525788</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1608894525788</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,7 +229,8 @@
     <MESSAGE value="修改部分多余代码" />
     <MESSAGE value="修改配置文件" />
     <MESSAGE value="修改注册逻辑" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改注册逻辑" />
+    <MESSAGE value="新增ImageDetail实体类，对应数据库user_img表&#10;todo：用户从图床移除某个图片、获取该用户所有图片的信息和缩略图（base64）" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增ImageDetail实体类，对应数据库user_img表&#10;todo：用户从图床移除某个图片、获取该用户所有图片的信息和缩略图（base64）" />
   </component>
   <component name="WindowStateProjectService">
     <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1608639164857">
@@ -306,11 +317,11 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1608642653567" />
-    <state x="451" y="187" key="Vcs.Push.Dialog.v2" timestamp="1608889789142">
+    <state x="451" y="187" key="Vcs.Push.Dialog.v2" timestamp="1608894529583">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1608864041602" />
-    <state x="451" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1608889789142" />
+    <state x="451" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1608894529583" />
     <state width="775" height="424" key="XDebugger.FullValuePopup" timestamp="1608724877051">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

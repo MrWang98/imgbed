@@ -4,6 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.demo.imgbed.mapper.ImageDetailMapper">
     <select id="selectByUserAndFilename" resultType="cn.demo.imgbed.entity.UserAccount">
-        SELECT * FROM user_img WHERE filename=#{filename} and ownerid=#{userid}
+        SELECT * FROM user_img WHERE filename=#{filename} and ownerid=#{id}
     </select>
 </mapper>
