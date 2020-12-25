@@ -71,7 +71,7 @@ public class ImgbedController {
 //        return imgbedService.getConfig();
 //    }
 
-    @RequestMapping("/loginOut")
+    @RequestMapping("/logout")
     public CommonRes loginOut(HttpSession session){
         session.removeAttribute("user");
         return ResultUtil.success();
