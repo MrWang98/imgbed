@@ -9,4 +9,5 @@ import java.util.List;
 @Mapper
 public interface ImageDetailMapper extends BaseMapper<ImageDetail> {
     ImageDetail selectByIdAndFilename(Integer id,String filename);
+    List<ImageDetail> selectById(Integer id);
 }

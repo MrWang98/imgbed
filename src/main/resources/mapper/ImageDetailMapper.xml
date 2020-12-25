@@ -6,4 +6,8 @@
     <select id="selectByIdAndFilename" resultType="cn.demo.imgbed.entity.ImageDetail">
         SELECT * FROM image_detail WHERE filename=#{filename} and owner_id=#{id}
     </select>
+
+    <select id="selectById" resultType="cn.demo.imgbed.entity.ImageDetail">
+        SELECT * FROM image_detail WHERE owner_id=#{id}
+    </select>
 </mapper>
