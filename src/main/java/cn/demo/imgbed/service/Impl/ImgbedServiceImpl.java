@@ -164,14 +164,19 @@ public class ImgbedServiceImpl implements ImgbedService {
 
     @Override
     public CommonRes signUp(String username, String password){
-        UserAccount userAccount = new UserAccount();
-        userAccount.setUsername(username);
-        userAccount.setPassword(password);
-        try{
-            userAccountMapper.insert(userAccount);
-            return ResultUtil.success();
-        }catch (Exception e){
-            return ResultUtil.error(-1,e.getMessage());
+        if (userAccountMapper.selectByName(username) == null){
+            UserAccount userAccount = new UserAccount();
+            userAccount.setUsername(username);
+            userAccount.setPassword(password);
+            try{
+                userAccountMapper.insert(userAccount);
+                return ResultUtil.success();
+            }catch (Exception e){
+                return ResultUtil.error(-1,e.getMessage());
+            }
+        }
+        else {
+            return ResultUtil.error(-1,"duplicated username");
         }
     }
 
