@@ -4,18 +4,16 @@ import java.io.*;
 import java.net.URLDecoder;
 
 public class ImgbedUtil {
-
-
-    public static String txt2String(File file){
+    public static String txt2String(File file) {
         StringBuilder result = new StringBuilder();
-        try{
+        try {
             BufferedReader br = new BufferedReader(new FileReader(file));//构造一个BufferedReader类来读取文件
             String s = null;
-            while((s = br.readLine())!=null){//使用readLine方法，一次读一行
-                result.append(System.lineSeparator()+s);
+            while ((s = br.readLine()) != null) {//使用readLine方法，一次读一行
+                result.append(System.lineSeparator() + s);
             }
             br.close();
-        }catch(Exception e){
+        } catch (Exception e) {
             //e.printStackTrace();
             return null;
         }
@@ -44,16 +42,16 @@ public class ImgbedUtil {
     }
 
     public static void contentToTxt(String filePath, String content) {
-        try{
+        try {
             File file = new File(URLDecoder.decode(filePath));
-            if(!file.exists()){
+            if (!file.exists()) {
                 file.createNewFile();
             }
             //每次覆盖写入，保存配置
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file,false));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
             writer.write(content);
             writer.close();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

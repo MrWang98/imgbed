@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserAccount {
-    private Integer id;
-    private String username;
-    private String password;
+public class ImageDetail {
+    private Integer imgId;
+    private String filename;
+    private Integer ownerId;
 }

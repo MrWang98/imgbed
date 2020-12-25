@@ -2,8 +2,10 @@ package cn.demo.imgbed.service.Impl;
 
 import cn.demo.imgbed.dto.ApiRes;
 import cn.demo.imgbed.dto.CommonRes;
+import cn.demo.imgbed.entity.ImageDetail;
 import cn.demo.imgbed.entity.ImgbedConfig;
 import cn.demo.imgbed.entity.UserAccount;
+import cn.demo.imgbed.mapper.ImageDetailMapper;
 import cn.demo.imgbed.mapper.UserAccountMapper;
 import cn.demo.imgbed.service.ImgbedService;
 import cn.demo.imgbed.util.ApiResultUtil;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ClassUtils;
 import sun.misc.BASE64Decoder;
 
+import java.awt.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
@@ -27,6 +30,8 @@ public class ImgbedServiceImpl implements ImgbedService {
     @Autowired
     private UserAccountMapper userAccountMapper;
 
+    @Autowired
+    private ImageDetailMapper imageDetailMapper;
 
     //上传
     @Override
@@ -34,11 +39,12 @@ public class ImgbedServiceImpl implements ImgbedService {
         if (imgbedConfig == null){
             getImgbedConfig();
         }
-
-        if (imgbedConfig.getType() == 1){
-            return ApiResultUtil.error("搜狗图床已停止服务");
-        }else if (imgbedConfig.getType() == 2){
-
+        //
+        UserAccount currentUser = userAccountMapper.selectByName(username);
+        if (imageDetailMapper.selectByIdAndFilename(currentUser.getId(),fileName) != null) {
+            return ApiResultUtil.error("duplicated filename");
+        }
+        else {
             System.out.print("已经收到了把字节码转化为图片的方法");
             //对字节数组字符串进行Base64解码并生成图片
             if (imgBase64 == null) //图像数据为空
@@ -69,16 +75,18 @@ public class ImgbedServiceImpl implements ImgbedService {
                 out.write(b);
                 out.flush();
                 out.close();
-                return ApiResultUtil.success(imgFilePath);
+
+                ImageDetail imageDetail = new ImageDetail();
+                imageDetail.setFilename(fileName);
+                imageDetail.setOwnerId(currentUser.getId());
+                imageDetailMapper.insert(imageDetail);
+                return ApiResultUtil.success("http://akimcserver.xyz:10000/"+username+"/"+fileName);
             }
             catch (Exception e)
             {
                 return ApiResultUtil.error(e.getMessage());
             }
         }
-
-
-        return ApiResultUtil.error("类型错误");
     }
 
     //用户登录
