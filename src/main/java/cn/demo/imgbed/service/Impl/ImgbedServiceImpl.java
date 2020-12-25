@@ -36,11 +36,7 @@ public class ImgbedServiceImpl implements ImgbedService {
 
     //上传
     @Override
-    public ApiRes doUpload(String imgBase64, String fileName, String username, HttpSession httpSession){
-        if (httpSession.getAttribute("user") == null) {
-            return ApiResultUtil.error("no login info");
-        }
-
+    public ApiRes doUpload(String imgBase64, String fileName, String username){
         UserAccount currentUser = userAccountMapper.selectByName(username);
         if (imageDetailMapper.selectByIdAndFilename(currentUser.getId(),fileName) != null) {
             return ApiResultUtil.error("duplicated filename");

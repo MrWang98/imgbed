@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 
 public interface ImgbedService {
 
-    ApiRes doUpload(String imgBase64, String fileName, String username, HttpSession httpSession);
+    ApiRes doUpload(String imgBase64, String fileName, String username);
 
     CommonRes login(String username, String password);
 
