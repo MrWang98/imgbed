@@ -58,12 +58,12 @@ public class ImgbedServiceImpl implements ImgbedService {
                         b[i]+=256;
                     }
                 }
-                String filePath = "D:\\images";
+                String filePath = "/tmp";
                 File file = new File(filePath);
                 if(!file.exists()){
                     file.mkdir();
                 }
-                String imgFilePath = filePath+"\\"+fileName;//新生成的图片
+                String imgFilePath = filePath+"/"+fileName;//新生成的图片
                 System.out.println(imgFilePath);
                 OutputStream out = new FileOutputStream(imgFilePath);
                 out.write(b);
