@@ -71,8 +71,8 @@
                         </div>
                         <br><br>
                         <button type="button" class="btn btn-lg btn-default" onclick="saveConfig()">登录</button>
-
                         <button type="button" class="btn btn-lg btn-default" onclick="loginOut()">退出登录</button>
+                        <button type="button" class="btn btn-lg btn-default" onclick="signUp()">注册</button>
                     </form>
                     </p>
                 </div>
@@ -130,6 +130,14 @@
             alert(data.msg);
             window.location.href = "index.html";
         });
+    }
+
+    function signUp(){
+        var data = "username="+$("#Username").val()
+            +"&password="+$("#Password").val();
+        $.post("/signUp",data,function (data){
+            alert(data.msg);
+        })
     }
 
     getConfig();

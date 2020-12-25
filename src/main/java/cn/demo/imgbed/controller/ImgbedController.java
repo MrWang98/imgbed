@@ -3,6 +3,7 @@ package cn.demo.imgbed.controller;
 import cn.demo.imgbed.dto.ApiRes;
 import cn.demo.imgbed.dto.CommonRes;
 import cn.demo.imgbed.entity.ImgbedConfig;
+import cn.demo.imgbed.entity.UserAccount;
 import cn.demo.imgbed.service.ImgbedService;
 import cn.demo.imgbed.util.ApiResultUtil;
 import cn.demo.imgbed.util.ResultUtil;
@@ -60,7 +61,8 @@ public class ImgbedController {
             session.setAttribute("user",username);
             return imgbedService.setConfig(pimgbedConfig);
         }else {
-            return ResultUtil.error(-1,"登陆失败");
+//            return ResultUtil.error(-1,"登录失败");
+            return ResultUtil.error(-1,res.getMsg());
         }
     }
 
@@ -75,6 +77,19 @@ public class ImgbedController {
         return ResultUtil.success();
     }
 
-
+    @RequestMapping("/signUp")
+    public CommonRes signUp(UserAccount userAccount){
+        if(userAccount.getUsername()==""){
+            return ResultUtil.error(-1,"用户名不能为空");
+        }
+        if(userAccount.getPassword()==""){
+            return ResultUtil.error(-1,"密码不能为空");
+        }
+        try{
+            return imgbedService.signUp(userAccount.getUsername(),userAccount.getPassword());
+        }catch (Exception e){
+            return ResultUtil.error(-1,"注册失败："+e.getMessage());
+        }
+    }
 
 }

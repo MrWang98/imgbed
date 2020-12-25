@@ -58,7 +58,7 @@ public class ImgbedServiceImpl implements ImgbedService {
                         b[i]+=256;
                     }
                 }
-                String filePath = "/tmp";
+                String filePath = "/tmp"+"/"+username;
                 File file = new File(filePath);
                 if(!file.exists()){
                     file.mkdir();
@@ -86,7 +86,11 @@ public class ImgbedServiceImpl implements ImgbedService {
     public CommonRes login(String username, String password){
         UserAccount userAccount = null;
         if(username!=""){
-            userAccount = userAccountMapper.selectByName(username);
+            try{
+                userAccount = userAccountMapper.selectByName(username);
+            }catch (Exception e){
+                return ResultUtil.error(-1,e.getMessage());
+            }
         }
 
         if(userAccount==null){
@@ -156,6 +160,19 @@ public class ImgbedServiceImpl implements ImgbedService {
         }
 
         return imgbedConfig;
+    }
+
+    @Override
+    public CommonRes signUp(String username, String password){
+        UserAccount userAccount = new UserAccount();
+        userAccount.setUsername(username);
+        userAccount.setPassword(password);
+        try{
+            userAccountMapper.insert(userAccount);
+            return ResultUtil.success();
+        }catch (Exception e){
+            return ResultUtil.error(-1,e.getMessage());
+        }
     }
 
     @Override

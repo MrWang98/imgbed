@@ -14,6 +14,8 @@ public interface ImgbedService {
 
     CommonRes setConfig(ImgbedConfig newConfig);
 
+    CommonRes signUp(String username,String password);
+
     ImgbedConfig getImgbedConfig();
 
     void save(ImgbedConfig imgbedConfig);
