@@ -44,6 +44,7 @@ public class ImgbedController {
         if(session.getAttribute("user")!=null&&imgbedService.getImgbedConfig().getUsername()!=""){
             apiRes = imgbedService.doUpload(imgBase64, key, (String) session.getAttribute("user"));
         }
+
         if (str){
             rsp.getWriter().print(apiRes.getImg());
         }else{
@@ -92,4 +93,12 @@ public class ImgbedController {
         }
     }
 
+    @GetMapping("/mine")
+    public void getAllPic(HttpServletResponse rsp, HttpSession session) throws IOException {
+        if(session.getAttribute("user") == null){
+            rsp.getWriter().print(new Gson().toJson(ApiResultUtil.error("no login info")));
+        } else {
+            rsp.getWriter().print(new Gson().toJson(imgbedService.getAllPic((String) session.getAttribute("user"))));
+        }
+    }
 }

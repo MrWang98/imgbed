@@ -24,9 +24,14 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73cf272c-da4b-4c69-ae42-040aa6720892" name="Default Changelist" comment="a">
+    <list default="true" id="73cf272c-da4b-4c69-ae42-040aa6720892" name="Default Changelist" comment="logout">
+      <change afterPath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/dto/PicRes.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/controller/ImgbedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/controller/ImgbedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/mapper/ImageDetailMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/mapper/ImageDetailMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/service/ImgbedService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/service/ImgbedService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/service/Impl/ImgbedServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/cn/demo/imgbed/service/Impl/ImgbedServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ImageDetailMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ImageDetailMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/api.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/cover.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/favicon.ico" beforeDir="false" />
@@ -43,9 +48,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Mapper.xml" />
-        <option value="Class" />
         <option value="Interface" />
         <option value="Tag Library Descriptor" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -205,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608895177348</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="logout">
+      <created>1608900231288</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1608900231288</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,13 +256,15 @@
     <MESSAGE value="新增ImageDetail实体类，对应数据库user_img表&#10;todo：用户从图床移除某个图片、获取该用户所有图片的信息和缩略图（base64）" />
     <MESSAGE value="test" />
     <MESSAGE value="a" />
-    <option name="LAST_COMMIT_MESSAGE" value="a" />
+    <MESSAGE value="logout" />
+    <option name="LAST_COMMIT_MESSAGE" value="logout" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1608639164857">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="718" y="153" key="#com.intellij.ide.util.MemberChooser" timestamp="1608901095585">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1608639164857" />
+    <state x="718" y="153" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1608901095585" />
     <state x="286" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1608649426992">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -331,11 +345,11 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1608642653567" />
-    <state x="451" y="187" key="Vcs.Push.Dialog.v2" timestamp="1608895179750">
+    <state x="451" y="187" key="Vcs.Push.Dialog.v2" timestamp="1608900236468">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1608864041602" />
-    <state x="451" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1608895179750" />
+    <state x="451" y="187" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1608900236468" />
     <state width="775" height="424" key="XDebugger.FullValuePopup" timestamp="1608724877051">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

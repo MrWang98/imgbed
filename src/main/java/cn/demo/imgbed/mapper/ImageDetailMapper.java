@@ -8,5 +8,6 @@ import java.util.List;
 
 @Mapper
 public interface ImageDetailMapper extends BaseMapper<ImageDetail> {
-    List<ImageDetail> selectByIdAndFilename(Integer id,String filename);
+    ImageDetail selectByIdAndFilename(Integer id,String filename);
+    List<ImageDetail> selectById(Integer id);
 }
