@@ -38,9 +38,14 @@ public class ImgbedServiceImpl implements ImgbedService {
     @Override
     public ApiRes doUpload(String imgBase64, String fileName, String username){
         UserAccount currentUser = userAccountMapper.selectByName(username);
-        if (imageDetailMapper.selectByIdAndFilename(currentUser.getId(),fileName) != null) {
+        ImageDetail imageDetail = imageDetailMapper.selectByIdAndFilename(currentUser.getId(),fileName);
+
+        if ( imageDetail!= null) {
             return ApiResultUtil.error("duplicated filename");
         }
+//        if (false) {
+//            return new ApiRes();
+//        }
         else {
             System.out.print("已经收到了把字节码转化为图片的方法");
             //对字节数组字符串进行Base64解码并生成图片
@@ -61,19 +66,19 @@ public class ImgbedServiceImpl implements ImgbedService {
                         b[i]+=256;
                     }
                 }
-                String filePath = "/tmp"+"/"+username;
+                String filePath = "D:\\images";
                 File file = new File(filePath);
                 if(!file.exists()){
                     file.mkdir();
                 }
-                String imgFilePath = filePath+"/"+fileName;//新生成的图片
+                String imgFilePath = filePath+"\\"+fileName;//新生成的图片
                 System.out.println(imgFilePath);
                 OutputStream out = new FileOutputStream(imgFilePath);
                 out.write(b);
                 out.flush();
                 out.close();
 
-                ImageDetail imageDetail = new ImageDetail();
+                imageDetail = new ImageDetail();
                 imageDetail.setFilename(fileName);
                 imageDetail.setOwnerId(currentUser.getId());
                 imageDetailMapper.insert(imageDetail);
@@ -81,6 +86,7 @@ public class ImgbedServiceImpl implements ImgbedService {
             }
             catch (Exception e)
             {
+                System.out.println(e.getMessage());
                 return ApiResultUtil.error(e.getMessage());
             }
         }

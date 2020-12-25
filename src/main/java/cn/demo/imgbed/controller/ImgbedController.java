@@ -22,32 +22,19 @@ public class ImgbedController {
     private ImgbedService imgbedService;
 
     @RequestMapping("/api")
-    public void api( String key, String imgBase64, String onlyUrl, HttpServletResponse rsp,HttpSession session) throws IOException {
+    public void api( String key, String imgBase64, HttpServletResponse rsp,HttpSession session) throws IOException {
 
         rsp.setHeader("Content-Type", "application/json;charset=UTF-8");
 
-        boolean str = false;
-        if (onlyUrl!=null && onlyUrl.equals("1")){
-            str = true;
-        }
-
         if (imgBase64 == null || imgBase64.equals("")){
-            if (str){
-                rsp.getWriter().print("null");
-            }else{
-                rsp.getWriter().print(new Gson().toJson(ApiResultUtil.error("请传入图片的Base64编码")));
-            }
+            rsp.getWriter().print(new Gson().toJson(ApiResultUtil.error("请传入图片的Base64编码")));
         }
 
-        ApiRes apiRes = ApiResultUtil.error("请先登录");
-
-        if(session.getAttribute("user")!=null&&imgbedService.getImgbedConfig().getUsername()!=""){
-            apiRes = imgbedService.doUpload(imgBase64, key, (String) session.getAttribute("user"));
-        }
-        if (str){
-            rsp.getWriter().print(apiRes.getImg());
-        }else{
+        if(session.getAttribute("user")!=null){
+            ApiRes apiRes = imgbedService.doUpload(imgBase64, key, (String) session.getAttribute("user"));
             rsp.getWriter().print(new Gson().toJson(apiRes));
+        }else{
+            rsp.getWriter().print(new Gson().toJson("请先登录"));
         }
 
     }
@@ -61,15 +48,9 @@ public class ImgbedController {
             session.setAttribute("user",username);
             return imgbedService.setConfig(pimgbedConfig);
         }else {
-//            return ResultUtil.error(-1,"登录失败");
             return ResultUtil.error(-1,res.getMsg());
         }
     }
-
-//    @GetMapping("/getConfig")
-//    public CommonRes getConfig(HttpSession session){
-//        return imgbedService.getConfig();
-//    }
 
     @RequestMapping("/logout")
     public CommonRes loginOut(HttpSession session){
