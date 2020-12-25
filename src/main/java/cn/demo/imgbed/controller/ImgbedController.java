@@ -73,4 +73,12 @@ public class ImgbedController {
         }
     }
 
+    @GetMapping("/mine")
+    public void getAllPic(HttpServletResponse rsp, HttpSession session) throws IOException {
+        if(session.getAttribute("user") == null){
+            rsp.getWriter().print(new Gson().toJson(ApiResultUtil.error("no login info")));
+        } else {
+            rsp.getWriter().print(new Gson().toJson(imgbedService.getAllPic((String) session.getAttribute("user"))));
+        }
+    }
 }

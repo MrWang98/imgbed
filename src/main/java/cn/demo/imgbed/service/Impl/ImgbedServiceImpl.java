@@ -2,6 +2,7 @@ package cn.demo.imgbed.service.Impl;
 
 import cn.demo.imgbed.dto.ApiRes;
 import cn.demo.imgbed.dto.CommonRes;
+import cn.demo.imgbed.dto.PicRes;
 import cn.demo.imgbed.entity.ImageDetail;
 import cn.demo.imgbed.entity.ImgbedConfig;
 import cn.demo.imgbed.entity.UserAccount;
@@ -11,6 +12,7 @@ import cn.demo.imgbed.service.ImgbedService;
 import cn.demo.imgbed.util.ApiResultUtil;
 import cn.demo.imgbed.util.ResultUtil;
 import cn.demo.imgbed.util.ImgbedUtil;
+import com.sun.javafx.scene.control.skin.SpinnerSkin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ClassUtils;
@@ -21,6 +23,9 @@ import java.awt.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 
 @Service
@@ -38,14 +43,9 @@ public class ImgbedServiceImpl implements ImgbedService {
     @Override
     public ApiRes doUpload(String imgBase64, String fileName, String username){
         UserAccount currentUser = userAccountMapper.selectByName(username);
-        ImageDetail imageDetail = imageDetailMapper.selectByIdAndFilename(currentUser.getId(),fileName);
-
-        if ( imageDetail!= null) {
+        if (imageDetailMapper.selectByIdAndFilename(currentUser.getId(),fileName) != null) {
             return ApiResultUtil.error("duplicated filename");
         }
-//        if (false) {
-//            return new ApiRes();
-//        }
         else {
             System.out.print("已经收到了把字节码转化为图片的方法");
             //对字节数组字符串进行Base64解码并生成图片
@@ -66,19 +66,19 @@ public class ImgbedServiceImpl implements ImgbedService {
                         b[i]+=256;
                     }
                 }
-                String filePath = "D:\\images";
+                String filePath = "/tmp"+"/"+username;
                 File file = new File(filePath);
                 if(!file.exists()){
                     file.mkdir();
                 }
-                String imgFilePath = filePath+"\\"+fileName;//新生成的图片
+                String imgFilePath = filePath+"/"+fileName;//新生成的图片
                 System.out.println(imgFilePath);
                 OutputStream out = new FileOutputStream(imgFilePath);
                 out.write(b);
                 out.flush();
                 out.close();
 
-                imageDetail = new ImageDetail();
+                ImageDetail imageDetail = new ImageDetail();
                 imageDetail.setFilename(fileName);
                 imageDetail.setOwnerId(currentUser.getId());
                 imageDetailMapper.insert(imageDetail);
@@ -86,10 +86,24 @@ public class ImgbedServiceImpl implements ImgbedService {
             }
             catch (Exception e)
             {
-                System.out.println(e.getMessage());
                 return ApiResultUtil.error(e.getMessage());
             }
         }
+    }
+
+    @Override
+    public PicRes getAllPic(String username) {
+        UserAccount currentUser = userAccountMapper.selectByName(username);
+        List<ImageDetail> imageDetailList = imageDetailMapper.selectById(currentUser.getId());
+        PicRes picRes = new PicRes();
+        picRes.setCode(1);
+        picRes.setMsg("get data success");
+        List<String> list = new ArrayList<>();
+        imageDetailList.forEach((ImageDetail image) -> {
+            list.add("http://akimcserver.xyz:10000/"+username+"/"+image.getFilename());
+        });
+        picRes.setPics(list);
+        return picRes;
     }
 
     //用户登录
